@@ -1,0 +1,7 @@
+data
+*/exp*
+*/backup*
+*/fbank
+*/mfcc
+*/__pycache__
+*/*.png
