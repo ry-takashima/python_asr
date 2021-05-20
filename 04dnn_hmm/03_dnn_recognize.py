@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     # 評価データの特徴量リスト
     test_feat_scp = \
-        '../03gmm_hmm/exp/data/test/feats.scp'
+        '../03gmm_hmm/exp/data/test/mfcc/feats.scp'
     
     # HMMファイル
     hmm_file = '../03gmm_hmm/exp/model_3state_2mix/10.hmm'
