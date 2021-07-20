@@ -382,7 +382,7 @@ if __name__ == "__main__":
                   % (phase, epoch_error))
             log_file.write('%.6f\t' % (epoch_error))
             # 履歴に加える
-            error_history[phase].append(epoch_error)
+            error_history[phase].append(epoch_error.cpu())
 
             #
             # validationフェーズ特有の処理
