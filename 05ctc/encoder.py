@@ -5,6 +5,7 @@
 #
 
 # Pytorchを用いた処理に必要なモジュールをインポート
+import torch
 import torch.nn as nn
 from torch.nn.utils.rnn import pack_padded_sequence
 from torch.nn.utils.rnn import pad_packed_sequence
@@ -125,10 +126,10 @@ class Encoder(nn.Module):
                 output = output[:, ::sub]
                 # フレーム数を更新する 
                 # 更新後のフレーム数=(更新前のフレーム数+1)//sub
-                output_lengths = (output_lengths+1) // sub
-            
+                output_lengths = torch.div((output_lengths+1), sub, 
+                                           rounding_mode='floor')
             # Projection層に入力する
-            output = self.proj[n](output)
+            output = torch.tanh(self.proj[n](output))
 
         # sub samplingを実行した場合はフレーム数が変わるため，
         # 出力のフレーム数情報も出力する
