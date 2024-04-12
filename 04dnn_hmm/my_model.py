@@ -63,8 +63,8 @@ class MyDNN(nn.Module):
         # 入力層を通す
         output = self.inp(frame)
         # 隠れ層を通す
-        for n in range(self.num_layers):
-            output = self.hidden[n](output)
+        for layer in self.hidden:
+            output = layer(output)
         # 出力層を通す
         output = self.out(output)
         return output
